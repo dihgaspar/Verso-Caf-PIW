@@ -1,25 +1,29 @@
-# :checkered_flag: NOME DO PROJETO
+# :checkered_flag: Verso & Café
 
-Breve descrição do que o seu projeto faz.
+Verso & Café é um cafeteria, que oferece aos seus clientes excelentes opções de bebidas, lanches e livros!
 
 ## :technologist: Membros da equipe
 
-Matrícula, nome e curso dos participantes.
+Diogo Gaspar | Design Digital | 474255.
+José Aurivanio Aquino | Design Digital | 475976
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
-Informe aqui os tipos de usuário que irão interagir com a aplicação. Ex: administrador, locador, locatario, usuário não logado.
-
-> Tenha em mente que obrigatoriamente a aplicação deve possuir funcionalidades acessíveis a todos os tipos de usuário e outra funcionalidades restritas a certos tipos de usuários.
+1. Administrador
+2. Cliente
+3. Visitante
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Liste as principais entidades do sistema.
+Usuários
+Pratos
+Livros
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
-Descreve ou liste brevemente as principais funcionalidades da aplicação que será desenvolvida. Destaque a funcionalidades que serão acessévies a todos os usuários e aquelas restriras a usuários logados.
-
+1. Administrador: Poderá registrar os pratos e livros, editá-los e excluí-los. Poderá visualizar os itens cadastrados, realizar comentários e visualizar os dos Clientes.
+2. Cliente: Poderá comprar pratos e selecionar livros para ler. Poderá visualizar os itens cadastrados, realizar comentários e visualizar os dos outros Clientes.
+3. Visitante: Poderá visualizar os itens cadastrados e os comentários dos Clientes.
 
 ----
 
