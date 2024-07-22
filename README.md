@@ -6,6 +6,7 @@ Verso & Café é um cafeteria, que oferece aos seus clientes excelentes opções
 
 Diogo Gaspar | Design Digital | 474255.
 José Aurivanio Aquino | Design Digital | 475976
+Carol Andrade | Design Digital | 499187
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
