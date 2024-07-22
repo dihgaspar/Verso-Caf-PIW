@@ -15,6 +15,7 @@ app.get('*', (req, res) => {
         <ul>
           <li>Diogo Gaspar</li>
           <li>José Aurivanio</li>
+          <li>Carol Andrade</li>
         </ul>
       </body>
     </html>
