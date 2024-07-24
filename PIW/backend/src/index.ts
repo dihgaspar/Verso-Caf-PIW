@@ -1,9 +1,16 @@
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
 import express from 'express';
+import userRoutes from './routes/userRoutes';
+import { User } from './entity/user';
 
 const app = express();
 const port = 3000;
 
-app.get('*', (req, res) => {
+app.use(express.json());
+app.use('/api', userRoutes);
+
+app.get('/', (req, res) => {
   res.send(`
     <html>
       <head>
@@ -22,6 +29,16 @@ app.get('*', (req, res) => {
   `);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+const init = async () => {
+  try{
+    await createConnection();
+    console.log("Conectado ao Banco!")
+    app.listen(port, () => {
+      console.log(`Servidor rodando na porta http://localhost:${port}`);
+    });
+  }catch(err){
+    console.log("Erro ao conectar ao Banco!" + err)
+  }
+}
+
+init();
