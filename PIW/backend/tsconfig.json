@@ -1,16 +1,19 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "lib": ["es6", "dom"],
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "sourceMap": true,
+      "outDir": "./dist",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "baseUrl": "./",
+      "paths": {
+        "@src/*": ["src/*"]
+      }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }
+  
