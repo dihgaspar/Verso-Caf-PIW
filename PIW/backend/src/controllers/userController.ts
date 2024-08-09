@@ -13,7 +13,12 @@ export const getUsers = async (req: Request, res: Response) => {
 
 // ---> Encontrar um Usuário
 export const getUserById = async (req: Request, res: Response) => {
-    const user = await userRepository.findOneBy({ id: parseInt(req.params.id) });
+    const userId = parseInt(req.params.id);
+    // console.log('User ID:', userId);
+    const user = await userRepository.findOneBy({ id: userId });
+    if (!user) {
+        return res.status(404).send('Usuário não encontrado!');
+    }
     res.json(user);
 };
 
@@ -28,13 +33,14 @@ export const createUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
     const user = await userRepository.findOneBy({ id: parseInt(req.params.id) });
     if (!user) {
-        return res.status(404).send('Usuário não encontrad!o');
+        return res.status(404).send('Usuário não encontrado!');
     }
 
-    const { name, password } = req.body;
+    const { name, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    user.name = name || user.name;
-    user.password = hashedPassword || user.password;
+    user.name = name;
+    user.email = email;
+    user.password = hashedPassword;
 
     await userRepository.save(user);
     res.status(200).send('Usuário atualizado!');

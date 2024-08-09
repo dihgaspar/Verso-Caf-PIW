@@ -5,7 +5,7 @@ import { User } from "./models/User";
 export const AppDataSource = new DataSource({
     type: "sqlite",
     database: "./database.sqlite",
-    synchronize: false, // Deixe como false para usar migrações
+    synchronize: false,
     logging: false,
     entities: [User],
     migrations: ["src/migrations/*.ts"],

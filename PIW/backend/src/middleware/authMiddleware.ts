@@ -14,19 +14,19 @@ interface CustomRequest extends Request {
 export const authenticateJWT = (req: CustomRequest, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
 
-    if (authHeader) {
-        const token = authHeader.split(' ')[1];
-
-        jwt.verify(token, JWT_SECRET, (err, decoded) => {
-            if (err) {
-                return res.sendStatus(403);
-            }
-
-            const user = decoded as User;
-            req.user = user;
-            next();
-        });
-    } else {
-        res.sendStatus(401);
+    if (!authHeader) {
+        return res.status(401).json({ message: 'É necessário autorização!' });
     }
+
+    const token = authHeader.split(' ')[1];
+
+    jwt.verify(token, JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(403).json({ message: 'Token inválido!' });
+        }
+
+        const user = decoded as User;
+        req.user = user;
+        next();
+    });
 };

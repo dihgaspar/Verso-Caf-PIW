@@ -7,9 +7,14 @@ interface CustomRequest extends Request {
 
 export const authorizeRole = (roles: string[]) => {
     return (req: CustomRequest, res: Response, next: NextFunction) => {
-        if (!req.user || !roles.includes(req.user.role)) {
-            return res.sendStatus(403);
+        if (!req.user) {
+            return res.status(403).json({ message: 'Usuário não autenticado!' });
         }
+
+        if (!roles.includes(req.user.role)) {
+            return res.status(403).json({ message: 'Acesso negado!' });
+        }
+
         next();
     };
 };
