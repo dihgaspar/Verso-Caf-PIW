@@ -1,19 +1,31 @@
-import 'reflect-metadata';
-import express from 'express';
-import { AppDataSource } from './data-source';
-import userRoutes from './routes/userRoutes';
-import authRoutes from './routes/authRoutes';
+import cors from "cors";
+import express from "express";
+import "reflect-metadata";
+import { AppDataSource } from "./data-source";
+import authRoutes from "./routes/authRoutes";
+import bookRoutes from "./routes/bookRoutes";
+import dishRoutes from "./routes/dishRoutes";
+import orderRoutes from "./routes/orderRoutes";
+import userRoutes from "./routes/userRoutes";
+
+import path from "path";
 
 const app = express();
 const port = 3000;
 
+app.use(cors("*"));
+
 app.use(express.json());
 
-app.use('/api/users', userRoutes);
-app.use('/api/auth', authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/dishes", dishRoutes);
+app.use("/api/books", bookRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.get('/', (req, res) => {
-    res.send(`
+app.get("/", (req, res) => {
+  res.send(`
       <html>
         <head>
           <meta charset="utf-8">
@@ -31,12 +43,12 @@ app.get('/', (req, res) => {
         </body>
       </html>
     `);
-  });
+});
 
 AppDataSource.initialize()
-    .then(() => {
-        app.listen(port, () => {
-            console.log(`Server rodando na porta http://localhost:${port}`);
-        });
-    })
-    .catch((error) => console.log(error));
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server rodando na porta http://localhost:${port}`);
+    });
+  })
+  .catch((error) => console.log(error));
