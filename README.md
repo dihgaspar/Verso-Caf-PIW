@@ -16,9 +16,10 @@ Carol Andrade | Design Digital | 499187
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Usuários
-Pratos
-Livros
+Usuários (Users)
+Pratos (Dishs)
+Livros (Books)
+Pedidos (Orders)
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
@@ -49,9 +50,9 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 | Entidade| Criação | Leitura | Atualização | Remoção |
 | --- | --- | --- | --- | --- |
-| Entidade 1 | X |  X  |  | X |
-| Entidade 2 | X |    |  X | X |
-| Entidade 3 | X |    |  |  |
+| Users | X | X | X | X |
+| Dishs | X | X | X | X |
+| Books | X | X | X | X |
 
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
 
