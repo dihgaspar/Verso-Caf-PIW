@@ -24,6 +24,9 @@ export const getUserById = async (req: Request, res: Response) => {
 
 // ---> Criar um Usuário
 export const createUser = async (req: Request, res: Response) => {
+    const { name, email } = req.body
+
+    
     const user = userRepository.create(req.body);
     const result = await userRepository.save(user);
     res.send(result);
